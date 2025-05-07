@@ -39,7 +39,7 @@ def scrape_audible_sci_fi_fantasy(pages=5):
     books_data = []
 
     for page in range(1, pages + 1):
-        print(f"🔎 Scraping page {page}")
+        print(f"Scraping page {page}")
         url = f"https://www.audible.com/search?node=18580606011&pageSize=50&page={page}"
         response = requests.get(url, headers=headers)
         soup = BeautifulSoup(response.content, "html.parser")
@@ -73,9 +73,9 @@ def scrape_audible_sci_fi_fantasy(pages=5):
     df.to_csv("audible_sci_fi_fantasy_raw.csv", index=False)
     clean_df.to_csv("audible_sci_fi_fantasy_cleaned.csv", index=False)
 
-    print(f"\n✅ Scraping complete!")
-    print(f"📦 Total books scraped: {len(df)}")
-    print(f"✅ Cleaned books (with description): {len(clean_df)}")
+    print(f"Scraping complete!")
+    print(f"Total books scraped: {len(df)}")
+    print(f"Cleaned books (with description): {len(clean_df)}")
 
     return clean_df
 
